@@ -1,41 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romantic Surprise</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #e63946;
-        }
-        .content {
-            max-width: 800px;
-            margin: auto;
-        }
-        .surprise {
-            background-color: #ffffff;
-            border: 2px solid #e63946;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Surpresa ❤️</title>
+  <style>
+    body{
+      margin:0; font-family: Arial, sans-serif; text-align:center;
+      background: linear-gradient(120deg,#ffdde1,#ee9ca7); color:#fff;
+    }
+    .tela{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+    .box{
+      width:min(700px,100%); background: rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.25); border-radius:18px;
+      padding:22px; box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+    }
+    .btn{
+      border:0; background:#fff; color:#b7002a; font-weight:700;
+      padding:14px 22px; border-radius:999px; cursor:pointer; font-size:18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.2); transition:.2s;
+    }
+    .btn:hover{ transform: translateY(-2px) scale(1.03); }
+    input{
+      width:min(420px,100%); border:0; border-radius:12px;
+      padding:12px 14px; font-size:16px; margin-top:10px;
+    }
+    .conteudo{ display:none; padding:24px 14px 40px; max-width:1100px; margin:0 auto; }
+    .grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px; margin-top:18px;
+    }
+    .card{
+      background: rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22); border-radius:16px; overflow:hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
+    .card img{ width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
+    .card p{ margin:0; padding:10px 12px 12px; font-size:14px; line-height:1.45; }
+    .final{
+      margin:28px auto 0; width:min(800px,100%);
+      background: rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25);
+      border-radius:16px; padding:16px; font-size:20px; font-weight:700;
+      box-shadow: 0 14px 40px rgba(0,0,0,.2);
+    }
+    /* player invisível */
+    #playerWrap{ position:fixed; left:-9999px; top:0; width:0; height:0; overflow:hidden; }
+  </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Romantic Surprise</h1>
-        <div class="surprise">
-            <h2>A Special Message for You</h2>
-            <p>Love is the most beautiful feeling in the world. Just a reminder that you are cherished and appreciated!</p>
-            <p>💖</p>
-        </div>
+
+  <div id="playerWrap"></div>
+
+  <!-- TELA SENHA -->
+  <div class="tela" id="telaSenha">
+    <div class="box">
+      <h2>💌 nome do nosso primeiro foguinho</h2>
+      <input id="senha" placeholder="Digite a senha ❤️" />
+      <br><br>
+      <button class="btn" id="btnSenha">Entrar</button>
+      <p id="erro" style="display:none; margin-top:12px;">Senha incorreta 😢</p>
     </div>
+  </div>
+
+  <!-- TELA CLIQUE -->
+  <div class="tela" id="telaClique" style="display:none;">
+    <div class="box">
+      <h1>Uma surpresa pra você ❤️</h1>
+      <button class="btn" id="btnClique">CLIQUE AQUI</button>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo" id="conteudo">
+    <h1>Nossos momentos 💛</h1>
+
+    <div class="grid">
+      <div class="card"><img src="foto1.jpg"><p>Te encontrei sem procurar e hoje não sei mais me perder sem você.</p></div>
+      <div class="card"><img src="foto2.jpg"><p>Seu sorriso virou meu lugar favorito no mundo.</p></div>
+      <div class="card"><img src="foto3.jpg"><p>Nos seus olhos, encontrei a paz que eu nem sabia que procurava.</p></div>
+      <div class="card"><img src="foto4.jpg"><p>Cada detalhe seu me ensina, todos os dias, o que é amar.</p></div>
+      <div class="card"><img src="foto5.jpg"><p>O tempo passa… mas meu coração sempre para quando te vê.</p></div>
+      <div class="card"><img src="foto6.jpg"><p>Se amor fosse casa, eu moraria no som da sua risada.</p></div>
+      <div class="card"><img src="foto7.jpg"><p>Você chegou devagar e hoje é tudo em mim.</p></div>
+      <div class="card"><img src="foto8.jpg"><p>Entre bilhões de pessoas, meu coração escolheu você.</p></div>
+      <div class="card"><img src="foto9.jpg"><p>Te amar é a certeza mais bonita que eu tenho.</p></div>
+    </div>
+
+    <div class="final">eu te amo com toda minha alma, meu amor</div>
+  </main>
+
+  <script>
+    const CORRETA = "no escondido é melhor";
+    const telaSenha = document.getElementById("telaSenha");
+    const telaClique = document.getElementById("telaClique");
+    const conteudo = document.getElementById("conteudo");
+    const senha = document.getElementById("senha");
+    const erro = document.getElementById("erro");
+    const playerWrap = document.getElementById("playerWrap");
+
+    document.getElementById("btnSenha").onclick = () => {
+      if ((senha.value || "").trim().toLowerCase() === CORRETA) {
+        erro.style.display = "none";
+        telaSenha.style.display = "none";
+        telaClique.style.display = "flex";
+      } else {
+        erro.style.display = "block";
+      }
+    };
+
+    // Enter no teclado
+    senha.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") document.getElementById("btnSenha").click();
+    });
+
+    document.getElementById("btnClique").onclick = () => {
+      telaClique.style.display = "none";
+      conteudo.style.display = "block";
+
+      // Música (igual) - só inicia após clique
+      playerWrap.innerHTML = `
+        <iframe width="0" height="0"
+          src="https://www.youtube.com/embed/_k2ty4A5x1w?autoplay=1&loop=1&playlist=_k2ty4A5x1w"
+          frameborder="0" allow="autoplay"></iframe>`;
+    };
+  </script>
 </body>
 </html>
